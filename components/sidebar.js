@@ -37,29 +37,29 @@ const Sidebar = ({ transactions, dashboard, profile }) => {
     <>
       <div className="flex-[20%] h-full">
         <div className="card w-full shadow-xl h-full">
-          <div className="card-body px-0 flex flex-col gap-10 h-full">
-            <Link href="/home" className={`flex gap-5 px-8 ${dashboard ? " text-[#2C74B3] border-l-4 border-[#10A19D] px-7" : null}`}>
+          <div className="card-body px-0 flex flex-col gap-10 h-full bg-[#dac387] rounded-lg">
+            <Link href="/home" className={`flex gap-5 px-8 ${dashboard ? " text-white border-l-4 border-[#857752] px-7" : null}`}>
               <div>
                 <img src="/grid.svg" />
               </div>
               <div className={dashboard ? `font-bold` : null}>Dashboard</div>
             </Link>
 
-            <Link href="/transfer" className={`flex gap-5 px-8 ${transactions ? " text-[#2C74B3] border-l-4 border-[#10A19D] px-7" : null}`}>
+            <Link href="/transfer" className={`flex gap-5 px-8 ${transactions ? " text-white border-l-4 border-[#857752] px-7" : null}`}>
               <div>
-                <img className="text-[#10A19D]" src="/arrow-up.svg" />
+                <img className="text-[#10A19D]" src="/arrow-up 1.svg" />
               </div>
               <div className={transactions ? `font-bold` : null}>Transfer</div>
             </Link>
 
-            <label htmlFor="my-modal" className="flex gap-5 px-8 hover:cursor-pointer focus:text-[#2C74B3] focus:border-l-4 focus:border-[#10A19D]">
+            <label htmlFor="my-modal" className="flex gap-5 px-8 hover:cursor-pointer focus:text-white focus:border-l-4 focus:border-[#857752]">
               <div>
-                <img src="/plus.svg" />
+                <img src="/plus 1.svg" />
               </div>
               <div>Top Up</div>
             </label>
 
-            <Link href="/profile" className={`flex gap-5 px-8 ${profile ? " text-[#2C74B3] border-l-4 border-[#10A19D] px-7" : null}`}>
+            <Link href="/profile" className={`flex gap-5 px-8 ${profile ? " text-white border-l-4 border-[#857752] px-7" : null}`}>
               <div>
                 <img className="text-[#10A19D]" src="/user.svg" />
               </div>
@@ -70,7 +70,7 @@ const Sidebar = ({ transactions, dashboard, profile }) => {
               <div>
                 <img src="/log-out.svg" />
               </div>
-              <div>Logout</div>
+              <div className="text-[red] font-bold text-[18px]">Logout</div>
             </Link>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Sidebar = ({ transactions, dashboard, profile }) => {
 
       <input type="checkbox" id="my-modal" className="modal-toggle bg-cyan-50" />
       <div className="modal">
-        <div className="modal-box relative bg-cyan-50">
+        <div className="modal-box relative bg-[#dac387]">
           <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
           </label>
@@ -98,7 +98,7 @@ const Sidebar = ({ transactions, dashboard, profile }) => {
             </div>
 
             <div className="flex justify-end">
-              <button type="submit" className="text-center rounded-xl py-3 w-[150px] border-2 border-[#2C74B3] text-white bg-[#2C74B3] hover:cursor-point">
+              <button type="submit" className="text-center rounded-xl py-3 w-[150px] border-2 border-[#dac387] text-white bg-[#857752] hover:bg-[#908462] hover:cursor-point">
                 Continue
               </button>
             </div>

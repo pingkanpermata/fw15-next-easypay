@@ -22,11 +22,12 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <main className="flex px-20 py-7 bg-[#f5f5f5] h-screen gap-5">
-        <Sidebar dashboard={true} />
-
-        <div className="flex-[80%] flex-col gap-2 mb-5 h-full">
-          <div className="w-full flex bg-[#2C74B3] p-5 text-white rounded-xl mb-5">
+      <main className="flex px-20 py-7 bg-[#f5f5f5] gap-5">
+        <div className="h-screen w-60">
+          <Sidebar dashboard={true} />
+        </div>
+        <div className="flex-[60%] flex-col gap-2 mb-5 h-full">
+          <div className="w-full flex bg-[#dac387] p-5 text-white rounded-xl mb-5">
             <div className="flex grow flex-col gap-3">
               <div>Balance</div>
               <div className="grow flex items-center text-4xl font-bold">Rp. {user.balance}</div>
@@ -34,20 +35,20 @@ const Home = () => {
             </div>
             <div>
               <div className="mb-3">
-                <Link href='/transfer' className="flex gap-3 justify-center w-[150px] py-3 rounded-xl bg-[#BFEAF5] border-2 border-white">
+                <Link href='/transfer' className="flex gap-3 justify-center w-[150px] py-3 rounded-xl bg-[#857752] hover:bg-[#a19269] border-2 border-white">
                   <div>
                     <img src="/arrow-up.svg" />
                   </div>
-                  <div className="font-semibold text-stone-900">Transfer</div>
+                  <div className="font-semibold text-white">Transfer</div>
                 </Link>
               </div>
 
               <div>
-                <label htmlFor="my-modal" className="flex hover:cursor-pointer gap-3 justify-center w-[150px] py-3 rounded-xl bg-[#BFEAF5] border-2 border-white">
+                <label htmlFor="my-modal" className="flex hover:cursor-pointer gap-3 justify-center w-[150px] py-3 rounded-xl bg-[#857752] hover:bg-[#a19269] border-2 border-white">
                   <div>
                     <img src="/plus.svg" />
                   </div>
-                  <div className="font-semibold text-stone-900">Top Up</div>
+                  <div className="font-semibold text-white">Top Up</div>
                 </label>
               </div>
             </div>
@@ -55,7 +56,7 @@ const Home = () => {
 
           <div className="flex gap-3">
             <div className="flex-[50%]">
-              <div className="card w-full shadow-xl">
+              <div className="card w-full shadow-2xl">
                 <div className="card-body flex flex-col">
                   <div className="flex">
                     <div className="grow">
@@ -67,7 +68,7 @@ const Home = () => {
                     </div>
                     <div>
                       <div>
-                        <img src="/arrow-up-red.jpg" />
+                        <img src="/arrow-up-red.svg" />
                       </div>
                       <div className="text-sm text-stone-900">Expense</div>
                       <div className="font-bold text-stone-800">Not available</div>
@@ -81,12 +82,12 @@ const Home = () => {
               </div>
             </div>
             <div className="flex-[50%]">
-              <div className="card w-full shadow-xl">
+              <div className="card w-full shadow-2xl">
                 <div className="card-body flex flex-col gap-5">
                   <div className="flex mb-7">
                     <div className="grow font-bold text-stone-900">Transaction</div>
                     <div>
-                      <Link className="text-[#2C74B3]" href="/history">
+                      <Link className="text-[#dac387]" href="/history">
                         See all
                       </Link>
                     </div>
@@ -109,8 +110,10 @@ const Home = () => {
           </div>
         </div>
       </main>
-
+      
+      <div>
       <Footer />
+      </div>
     </>
   );
 };

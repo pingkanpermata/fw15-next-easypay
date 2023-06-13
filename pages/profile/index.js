@@ -46,7 +46,7 @@ const Profile = () => {
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[580px] gap-5">
         <Sidebar profile={true} />
-        <div className="flex-[80%] flex flex-col items-center gap-3 py-14 p-5 bg-white rounded-xl shadow overflow-y-auto">
+        <div className="flex-[80%] flex flex-col items-center gap-3 py-14 p-5 bg-[#dac387] rounded-xl shadow overflow-y-auto">
           {successMessage ? (
             <div className="alert alert-success shadow-lg">
               <div>
@@ -77,7 +77,7 @@ const Profile = () => {
 
           <div className="flex flex-col gap-3 w-7/12">
             <div>
-              <Link href="/profile/information" className="flex w-full bg-[#E5E5E5] px-5 py-4 rounded-xl items-center">
+              <Link href="/profile/information" className="flex w-full bg-[#fdfdfd] px-5 py-4 rounded-xl items-center">
                 <button className="flex justify-start grow w-full text-lg">Personal Information</button>
                 <div>
                   <img className="w-[30px]" src="/arrow-right.svg" />
@@ -85,7 +85,7 @@ const Profile = () => {
               </Link>
             </div>
             <div>
-              <Link href="/profile/changePass" className="flex w-full bg-[#E5E5E5] px-5 py-4 rounded-xl items-center">
+              <Link href="/profile/changePass" className="flex w-full bg-[#fdfdfd] px-5 py-4 rounded-xl items-center">
                 <button className="flex justify-start grow w-full text-lg">Change Password</button>
                 <div>
                   <img className="w-[30px]" src="/arrow-right.svg" />
@@ -93,7 +93,7 @@ const Profile = () => {
               </Link>
             </div>
             <div>
-              <Link href="/profile/changePin" className="flex w-full bg-[#E5E5E5] px-5 py-4 rounded-xl items-center">
+              <Link href="/profile/changePin" className="flex w-full bg-[#fdfdfd] px-5 py-4 rounded-xl items-center">
                 <button className="flex justify-start grow w-full text-lg">Change PIN</button>
                 <div>
                   <img className="w-[30px]" src="/arrow-right.svg" />
@@ -101,7 +101,7 @@ const Profile = () => {
               </Link>
             </div>
             <div>
-              <Link href="/" className="flex w-full bg-[#E5E5E5] px-5 py-4 rounded-xl items-center">
+              <Link href="/" className="flex w-full bg-[#fdfdfd] px-5 py-4 rounded-xl items-center">
                 <div className="flex justify-start grow w-full text-lg">Logout</div>
               </Link>
             </div>

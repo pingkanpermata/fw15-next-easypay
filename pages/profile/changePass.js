@@ -44,11 +44,11 @@ const ChangePassword = () => {
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[580px] gap-5">
         <Sidebar profile={true} />
-        <div className="flex-[80%] flex flex-col items-center gap-3 pt-5 p-8 bg-white rounded-xl shadow overflow-y-auto">
+        <div className="flex-[80%] flex flex-col items-center gap-3 pt-5 p-8 bg-[#dac387] rounded-xl shadow overflow-y-auto">
           <div className="w-full mb-14">
             <div className="font-bold text-lg mb-5 text-stone-800">Change Password</div>
 
-            <div className="w-[340px] text-slate-500 text-stone-800">You must enter your current password and then type your new password twice.</div>
+            <div className="w-[340px] text-stone-800">You must enter your current password and then type your new password twice.</div>
           </div>
           {errorMessage ? (
             <div className="alert alert-error shadow-lg">
@@ -71,11 +71,11 @@ const ChangePassword = () => {
             </div>
           ) : null}
           <form onSubmit={changePassword} className="flex flex-col gap-10 w-5/12">
-            <div className={`flex gap-3 items-center border-b-2 ${contentCurrentPassword ? "border-[#2C74B3]" : "border-[#2C74B3]"}`}>
-              <FiLock className={`text-xl ${contentCurrentPassword ? "text-[#2C74B3]" : null}`} />
+            <div className={`flex gap-3 items-center border-b-2 ${contentCurrentPassword ? "border-[#857752]" : "border-[#c1d3e3]"}`}>
+              <FiLock className={`text-xl ${contentCurrentPassword ? "text-[#857752]" : null}`} />
               <input
                 onChange={(e) => setContentCurrentPassword(e.target.value.length)}
-                className="bg-white w-full py-2 focus:outline-none"
+                className="bg-[#dac387] w-full py-2 focus:outline-none"
                 type={isCurrentPassword ? "password" : "text"}
                 name="currentPassword"
                 id="currentPassword"
@@ -84,11 +84,11 @@ const ChangePassword = () => {
               {isCurrentPassword ? <FiEyeOff onClick={() => setIsCurrentPassword(false)} className="text-xl" /> : <FiEye onClick={() => setIsCurrentPassword(true)} className="text-xl" />}
             </div>
 
-            <div className={`flex gap-3 items-center border-b-2 ${contentNewPassword ? "border-[#2C74B3]" : "border-[#2C74B3]"}`}>
-              <FiLock className={`text-xl ${contentNewPassword ? "text-[#2C74B3]" : null}`} />
+            <div className={`flex gap-3 items-center border-b-2 ${contentNewPassword ? "border-[#857752]" : "border-[#c1d3e3]"}`}>
+              <FiLock className={`text-xl ${contentNewPassword ? "text-[#857752]" : null}`} />
               <input
                 onChange={(e) => setContentNewPassword(e.target.value.length)}
-                className="bg-white w-full py-2 focus:outline-none"
+                className="bg-[#dac387] w-full py-2 focus:outline-none"
                 type={isNewPassword ? "password" : "text"}
                 name="newPassword"
                 id="newPassword"
@@ -97,11 +97,11 @@ const ChangePassword = () => {
               {isNewPassword ? <FiEyeOff onClick={() => setIsNewPassword(false)} className="text-xl" /> : <FiEye onClick={() => setIsNewPassword(true)} className="text-xl" />}
             </div>
 
-            <div className={`flex gap-3 items-center border-b-2 ${contentConfirmNewPassword ? "border-[#2C74B3]" : "border-[#2C74B3]"}`}>
-              <FiLock className={`text-xl ${contentConfirmNewPassword ? "text-[#2C74B3]" : null}`} />
+            <div className={`flex gap-3 items-center border-b-2 ${contentConfirmNewPassword ? "border-[#857752]" : "border-[#c1d3e3]"}`}>
+              <FiLock className={`text-xl ${contentConfirmNewPassword ? "text-[#857752]" : null}`} />
               <input
                 onChange={(e) => setContentConfirmNewPassword(e.target.value.length)}
-                className="bg-white w-full py-2 focus:outline-none"
+                className="bg-[#dac387] w-full py-2 focus:outline-none"
                 type={isConfirmNewPassword ? "password" : "text"}
                 name="confirmPassword"
                 id="confirmPassword"
@@ -113,7 +113,7 @@ const ChangePassword = () => {
             <div>
               <button
                 disabled={contentCurrentPassword && contentNewPassword && contentConfirmNewPassword ? false : true}
-                className={`w-full rounded-xl font-bold py-3 ${contentCurrentPassword && contentNewPassword && contentConfirmNewPassword ? "bg-[#2C74B3] text-white" : "bg-[#DADADA]"}`}
+                className={`w-full rounded-xl font-bold py-3 ${contentCurrentPassword && contentNewPassword && contentConfirmNewPassword ? "bg-[#857752] text-white" : "bg-[#DADADA]"}`}
               >
                 Change Password
               </button>

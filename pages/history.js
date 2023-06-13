@@ -23,15 +23,17 @@ const History = () => {
   return (
     <>
       <Navbar />
-      <main className="flex px-20 py-7 bg-[#f5f5f5] h-screen gap-5">
-        <Sidebar dashboard={true} />
+      <main className="flex px-20 py-7 bg-[#f5f5f5] gap-5">
+        <div className="h-screen w-60">
+          <Sidebar dashboard={true} />
+        </div>
         <div className="flex-[80%] rounded-xl">
-          <div className="card w-full shadow-xl">
+          <div className="card w-full bg-[#dac387] shadow-xl">
             <div className="card-body flex flex-col gap-6">
               <div className="flex">
                 <div className="grow font-bold text-lg">Transaction History</div>
                 <div>
-                  <select className="bg-[#E5E5E5] py-3 px-5 rounded-xl">
+                  <select className="bg-[#fdfdfd] py-3 px-5 rounded-xl">
                     <option className="hidden">--Select Filter--</option>
                   </select>
                 </div>

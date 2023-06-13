@@ -6,7 +6,7 @@ const http = (token) => {
         headers.authorization = 'Bearer '+ token
     }
     const instance = axios.create({
-        baseURL: process.env.URL_BACKEND,
+        baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || "https://cute-lime-goldfish-toga.cyclic.app",
         headers,
     })
     return instance

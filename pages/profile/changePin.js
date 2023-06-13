@@ -134,11 +134,11 @@ const ChangePin = () => {
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[580px] gap-5">
         <Sidebar profile={true} />
         {!changePin ? (
-          <div className="flex-[80%] flex flex-col items-center gap-3 pt-5 p-8 bg-white rounded-xl shadow overflow-y-auto">
+          <div className="flex-[80%] flex flex-col items-center gap-3 pt-5 p-8 bg-[#dac387] rounded-xl shadow overflow-y-auto">
             <div className="w-full mb-14">
               <div className="font-bold text-lg mb-5 text-stone-800">Change PIN</div>
 
-              <div className="w-[340px] text-slate-500 text-stone-800">Enter your current 6 digits Trust-Pay PIN below to continue to the next steps.</div>
+              <div className="w-[340px] text-stone-800">Enter your current 6 digits Trust-Pay PIN below to continue to the next steps.</div>
             </div>
 
             {errorMessage ? (
@@ -154,7 +154,7 @@ const ChangePin = () => {
 
             <form onSubmit={confirmOldPin} className="flex flex-col gap-10 w-6/12">
               <div className="flex gap-6 mt-5">
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin1 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin1 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin1(e.target.value.length);
@@ -168,7 +168,7 @@ const ChangePin = () => {
                     maxLength="1"
                   />
                 </div>
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin2 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin2 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin2(e.target.value.length);
@@ -182,7 +182,7 @@ const ChangePin = () => {
                     maxLength="1"
                   />
                 </div>
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin3 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin3 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin3(e.target.value.length);
@@ -196,7 +196,7 @@ const ChangePin = () => {
                     maxLength="1"
                   />
                 </div>
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin4 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin4 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin4(e.target.value.length);
@@ -210,7 +210,7 @@ const ChangePin = () => {
                     maxLength="1"
                   />
                 </div>
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin5 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin5 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin5(e.target.value.length);
@@ -224,7 +224,7 @@ const ChangePin = () => {
                     maxLength="1"
                   />
                 </div>
-                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin6 ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
+                <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin6 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                   <input
                     onChange={(e) => {
                       setPin6(e.target.value.length);
@@ -240,7 +240,7 @@ const ChangePin = () => {
                 </div>
               </div>
               <div>
-                <button disabled={pin1 && pin2 && pin3 && pin4 && pin5 && pin6 ? false : true} className={`w-full rounded-xl font-bold py-3 text-white ${pin1 && pin2 && pin3 && pin4 && pin5 && pin6 ? "bg-[#10A19D]" : "bg-[#DADADA]"}`}>
+                <button disabled={pin1 && pin2 && pin3 && pin4 && pin5 && pin6 ? false : true} className={`w-full rounded-xl font-bold py-3 text-white ${pin1 && pin2 && pin3 && pin4 && pin5 && pin6 ? "bg-[#857752]" : "bg-[#DADADA]"}`}>
                   Continue
                 </button>
               </div>

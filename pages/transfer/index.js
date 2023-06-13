@@ -25,17 +25,17 @@ const Transfer = () => {
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[700px] gap-5">
         <Sidebar transactions={true} />
         <div className="flex-[80%]">
-          <div className="card w-full shadow-xl">
+          <div className="card w-full shadow-2xl bg-[#dac387]">
             <div className="card-body py-5">
               <div className="flex flex-col gap-5">
                 <div className="grow font-semibold text-lg text-stone-900">Search Receiver</div>
 
-                <div className="flex bg-[#E5E5E5] px-4 py-4 gap-3 rounded-xl">
+                <div className="flex bg-[#fdfdfd] px-4 py-4 gap-3 rounded-xl">
                   <div>
                     <BiSearch className="text-2xl" />
                   </div>
                   <div className="w-full">
-                    <input className="w-full bg-[#E5E5E5] text-stone-700 focus:outline-none" type="text" name="receiver" id="receiver" placeholder="Search receiver here" />
+                    <input className="w-full bg-[#fdfdfd] text-stone-700 focus:outline-none" type="text" name="receiver" id="receiver" placeholder="Search receiver here" />
                   </div>
                 </div>
 
@@ -55,10 +55,10 @@ const Transfer = () => {
               </div>
             </div>
             <div className="flex gap-3 justify-center pb-5">
-              <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="w-[40px] p-1 rounded-xl bg-[#DADADA] hover:bg-[#E5E5E5]">
+              <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="w-[40px] p-1 rounded-xl bg-[#fdfdfd] hover:bg-[#E5E5E5]">
                 <img src="/arrow-left.svg" />
               </button>
-              <button onClick={() => setPage((prev) => prev + 1)} className="w-[40px] p-1 rounded-xl bg-[#DADADA] hover:bg-[#E5E5E5]">
+              <button onClick={() => setPage((prev) => prev + 1)} className="w-[40px] p-1 rounded-xl bg-[#fdfdfd] hover:bg-[#E5E5E5]">
                 <img src="/arrow-right.svg" />
               </button>
             </div>

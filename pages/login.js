@@ -39,19 +39,19 @@ const Login = () => {
       <FormLogin />
 
       <div className="flex flex-col flex-[100%] lg:flex-[40%] px-10 justify-center gap-5  bg-[#f5f5f5]">
-        <div className="lg:hidden text-3xl font-bold text-[#10A19D]">e-Pay</div>
+        <img className="w-[25%] lg:hidden" src="/logo-easypay.png" alt="" />
 
-        <div className="text-2xl font-bold leading-relaxed max-w-[400px]">Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</div>
-        <div className="leading-relaxed max-w-[430px]">Transfering money is eassier than ever, you can access FazzPay wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</div>
+        <div className="text-2xl font-bold text-[#302b1e] leading-relaxed max-w-[400px]">Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</div>
+        <div className="leading-relaxed text-[#857752] max-w-[430px]">Transfering money is eassier than ever, you can access EasyPay wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</div>
         <form onSubmit={login} className="flex flex-col w-full lg:w-[430px] gap-7">
-          <div className={`flex gap-3 items-center border-b-2 ${contentEmail ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
-            <AiOutlineMail className={`text-xl ${contentEmail ? "text-[#10A19D]" : null}`} />
+          <div className={`flex gap-3 items-center border-b-2 ${contentEmail ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
+            <AiOutlineMail className={`text-xl ${contentEmail ? "text-[#857752]" : null}`} />
             <input onChange={(e) => setContentEmail(e.target.value.length)} className="bg-[#f5f5f5] w-full py-2 focus:outline-none" type="text" name="email" id="email" placeholder="Enter your e-mail" />
           </div>
 
           <div>
-            <div className={`flex gap-3 items-center border-b-2 mb-3 ${contentPassword ? "border-[#10A19D]" : "border-[#A9A9A9]"}`}>
-              <FiLock className={`text-xl ${contentPassword ? "text-[#10A19D]" : null}`} />
+            <div className={`flex gap-3 items-center border-b-2 mb-3 ${contentPassword ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
+              <FiLock className={`text-xl ${contentPassword ? "text-[#857752]" : null}`} />
               <input
                 onChange={(e) => setContentPassword(e.target.value.length)}
                 className="bg-[#f5f5f5] w-full py-2 focus:outline-none"
@@ -63,7 +63,7 @@ const Login = () => {
               {isPassword ? <FiEyeOff onClick={() => setIsPassword(false)} className="text-xl" /> : <FiEye onClick={() => setIsPassword(true)} className="text-xl" />}
             </div>
 
-            <div className="text-end text-stone-800">
+            <div className="text-end text-[#857752] font-semibold">
               <Link href="/forgotPassword">Forgot password?</Link>
             </div>
           </div>
@@ -76,11 +76,11 @@ const Login = () => {
 </div> : null}
 
           <div>
-            <button type='submit' disabled={contentEmail && contentPassword ? false : true} className={`w-full rounded-xl py-3 ${contentEmail && contentPassword ? "bg-[#10A19D] text-white" : "bg-[#DADADA]"}`}>Login</button>
+            <button type='submit' disabled={contentEmail && contentPassword ? false : true} className={`w-full rounded-xl py-3 ${contentEmail && contentPassword ? "bg-[#d3ba7a] hover:bg-[#d7c28a] text-white" : "bg-[#DADADA]"}`}>Login</button>
           </div>
           <div className="text-center">
             Don’t have an account? Let’s{" "}
-            <Link href="/register" className="text-[#10A19D]">
+            <Link href="/register" className="text-[#857752] font-semibold">
               Sign Up
             </Link>
           </div>
