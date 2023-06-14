@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/display-name */
 import React from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -9,12 +11,14 @@ const WithAuth = (Components) => {
 
     React.useEffect(() => {
       if (!token) {
-        router.replace("login");
+        router.replace("/login");
       }
     }, [token]);
+
     if (token) {
       return <Components {...props} />;
     }
+    return null;
   };
 };
 

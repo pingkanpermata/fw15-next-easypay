@@ -22,6 +22,7 @@ const History = () => {
 
   return (
     <>
+    <title>Transaction History | EasyPay</title>
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] gap-5">
         <div className="h-screen w-60">

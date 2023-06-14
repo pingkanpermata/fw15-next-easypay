@@ -43,6 +43,7 @@ const Profile = () => {
 
   return (
     <>
+    <title>Profile | EasyPay</title>
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[580px] gap-5">
         <Sidebar profile={true} />

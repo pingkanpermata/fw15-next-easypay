@@ -21,6 +21,7 @@ const Transfer = () => {
 
   return (
     <>
+    <title>Transfer | EasyPay</title>
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[700px] gap-5">
         <Sidebar transactions={true} />

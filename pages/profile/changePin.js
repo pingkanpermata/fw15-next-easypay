@@ -130,6 +130,7 @@ const ChangePin = () => {
 
   return (
     <>
+    <title>Change Pin | EasyPay</title>
       <Navbar />
       <main className="flex px-20 py-7 bg-[#f5f5f5] h-[580px] gap-5">
         <Sidebar profile={true} />
@@ -251,7 +252,7 @@ const ChangePin = () => {
             <div className="w-full mb-14">
               <div className="font-bold text-lg mb-5 text-stone-800">Change PIN</div>
 
-              <div className="w-[340px] text-slate-500 text-stone-800">Type your new 6 digits security PIN to use in Fazzpay.</div>
+              <div className="w-[340px] text-stone-800">Type your new 6 digits security PIN to use in Fazzpay.</div>
             </div>
 
             {successMessage ? (

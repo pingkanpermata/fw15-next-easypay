@@ -1,98 +1,197 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React from "react";
 import FormLogin from "../components/FormLogin";
-import jwt_decode from "jwt-decode";
-import { useSelector } from "react-redux";
+// import jwt_decode from "jwt-decode";
+// import { useSelector } from "react-redux";
 import http from "../helpers/http";
-import { useRef } from "react";
-import WithAuth from "../components/hoc/withauth.js";
+// import { useRef } from "react";
+// import WithAuth from "../components/hoc/withauth.js";
 import { useRouter } from "next/router";
+import { withIronSessionSsr } from "iron-session/next";
+import cookieConfig from "../helpers/cookieConfig";
+import { BsCheckCircleFill } from "react-icons/bs";
+import {MdError} from "react-icons/md";
 
+export const getServerSideProps = withIronSessionSsr(
+  async function getServerSideProps({ req, res }) {
+    const token = req.session?.token;
 
-const Pin = () => {
-  const token = useSelector((state) => state.auth.token);
-  const decode = jwt_decode(token);
-  const router = useRouter()
+    if (!token) {
+      res.setHeader("location", "/auth/login");
+      res.statusCode = 302;
+      res.end();
+      return {
+        prop: {}
+      };
+    }
+    const { data } = await http(token).get("/profile");
 
-  const [pin1, setPin1] = useState(0);
-  const [pin2, setPin2] = useState(0);
-  const [pin3, setPin3] = useState(0);
-  const [pin4, setPin4] = useState(0);
-  const [pin5, setPin5] = useState(0);
-  const [pin6, setPin6] = useState(0);
+    return {
+      props: {
+        token,
+        user: data.results
+      },
+    };
 
-  const input1 = useRef(null);
-  const input2 = useRef(null);
-  const input3 = useRef(null);
-  const input4 = useRef(null);
-  const input5 = useRef(null);
-  const input6 = useRef(null);
+  },
+  cookieConfig
+);
 
-  const createPin = async (e) => {
-    e.preventDefault();
-    const pin1 = e.target.pin1.value;
-    const pin2 = e.target.pin2.value;
-    const pin3 = e.target.pin3.value;
-    const pin4 = e.target.pin4.value;
-    const pin5 = e.target.pin5.value;
-    const pin6 = e.target.pin6.value;
+const Pin = ({ user }) => {
+  const email = user.email;
+  // const token = useSelector((state) => state.auth.token);
+  // const decode = jwt_decode(token);
+  const router = useRouter();
+  const [pin, setPin] = React.useState(0);
+  const [loading, setLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
+  const [successMessage, setSuccessMassage] = React.useState(false);
 
-    let pin = "";
-    pin += pin1;
-    pin += pin2;
-    pin += pin3;
-    pin += pin4;
-    pin += pin5;
-    pin += pin6;
-
+  const doCreatePin = async (e) => {
     try {
-      const { data } = await http().post("/auth/set-pin", { userId: decode.id, pin });
-      router.push('/pinCreated')
-    } catch (err) {
-      console.log(err);
+      e.preventDefault();
+
+      setErrorMessage("");
+      setSuccessMassage("");
+      setLoading(true);
+
+      const form = new URLSearchParams({
+        email,
+        pin
+      }).toString();
+
+      const { data } = await http().post("/auth/set-pin", form);
+      console.log(data);
+      if (data.success === false) {
+        setErrorMessage("Create pin failed, try again");
+        setLoading(false);
+      }
+      if (data.success === true) {
+        setSuccessMassage(true);
+        setLoading(false);
+        setTimeout(() => {
+          router.push("/login");
+        }, 1000);
+
+      }
+    } catch (error) {
+      const message = error?.response?.data.message;
+      if (message?.includes("Internal")) {
+        setErrorMessage("Internal Server Error");
+      }
+    }
+    finally {
+      setLoading(false);
     }
   };
 
-  const changeInput = (e) => {
-    if (e.target.value.length > 1) {
-      e.target.value = e.target.value.slice(0, 1);
-    }
-
-    if (e.target.value.length) {
-      if (e.target.name === "pin1") {
-        input2.current.focus();
-      }
-      if (e.target.name === "pin2") {
-        input3.current.focus();
-      }
-      if (e.target.name === "pin3") {
-        input4.current.focus();
-      }
-      if (e.target.name === "pin4") {
-        input5.current.focus();
-      }
-      if (e.target.name === "pin5") {
-        input6.current.focus();
-      }
-    }
-
-    if (!e.target.value.length) {
-      if (e.target.name === "pin2") {
-        input1.current.focus();
-      }
-      if (e.target.name === "pin3") {
-        input2.current.focus();
-      }
-      if (e.target.name === "pin4") {
-        input3.current.focus();
-      }
-      if (e.target.name === "pin5") {
-        input4.current.focus();
-      }
-      if (e.target.name === "pin6") {
-        input5.current.focus();
-      }
-    }
+  const pinInput = {
+    input1: React.useRef(),
+    input2: React.useRef(),
+    input3: React.useRef(),
+    input4: React.useRef(),
+    input5: React.useRef(),
+    input6: React.useRef(),
   };
+
+  const changeValue = (e) => {
+    if (e.target.value.length > 0) {
+      e.target.value = e.target.value.slice(e.target.value.length - 1);
+      if (parseInt(e.target.name) < 6) {
+        pinInput[`input${parseInt(e.target.name) + 1}`].current.focus();
+      }
+    } else {
+      if (parseInt(e.target.name) > 1) {
+        pinInput[`input${parseInt(e.target.name) - 1}`].current.focus();
+      }
+    }
+    const pin = [];
+    for (const key in pinInput) {
+      pin.push(pinInput[key].current.value);
+    }
+    onChangePin(pin.join(""));
+  };
+
+  // const [pin1, setPin1] = useState(0);
+  // const [pin2, setPin2] = useState(0);
+  // const [pin3, setPin3] = useState(0);
+  // const [pin4, setPin4] = useState(0);
+  // const [pin5, setPin5] = useState(0);
+  // const [pin6, setPin6] = useState(0);
+
+  // const input1 = useRef(null);
+  // const input2 = useRef(null);
+  // const input3 = useRef(null);
+  // const input4 = useRef(null);
+  // const input5 = useRef(null);
+  // const input6 = useRef(null);
+
+  // const createPin = async (e) => {
+  //   e.preventDefault();
+  //   const pin1 = e.target.pin1.value;
+  //   const pin2 = e.target.pin2.value;
+  //   const pin3 = e.target.pin3.value;
+  //   const pin4 = e.target.pin4.value;
+  //   const pin5 = e.target.pin5.value;
+  //   const pin6 = e.target.pin6.value;
+
+  //   let pin = "";
+  //   pin += pin1;
+  //   pin += pin2;
+  //   pin += pin3;
+  //   pin += pin4;
+  //   pin += pin5;
+  //   pin += pin6;
+
+  //   try {
+  //     const { data } = await http().post("/auth/set-pin", { userId: decode.id, pin });
+  //     router.push('/pinCreated')
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // const changeInput = (e) => {
+  //   if (e.target.value.length > 1) {
+  //     e.target.value = e.target.value.slice(0, 1);
+  //   }
+
+  //   if (e.target.value.length) {
+  //     if (e.target.name === "pin1") {
+  //       input2.current.focus();
+  //     }
+  //     if (e.target.name === "pin2") {
+  //       input3.current.focus();
+  //     }
+  //     if (e.target.name === "pin3") {
+  //       input4.current.focus();
+  //     }
+  //     if (e.target.name === "pin4") {
+  //       input5.current.focus();
+  //     }
+  //     if (e.target.name === "pin5") {
+  //       input6.current.focus();
+  //     }
+  //   }
+
+  //   if (!e.target.value.length) {
+  //     if (e.target.name === "pin2") {
+  //       input1.current.focus();
+  //     }
+  //     if (e.target.name === "pin3") {
+  //       input2.current.focus();
+  //     }
+  //     if (e.target.name === "pin4") {
+  //       input3.current.focus();
+  //     }
+  //     if (e.target.name === "pin5") {
+  //       input4.current.focus();
+  //     }
+  //     if (e.target.name === "pin6") {
+  //       input5.current.focus();
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -104,7 +203,7 @@ const Pin = () => {
           <div className="text-2xl font-bold text-[#302b1e] leading-relaxed w-[430px]">Secure Your Account, Your Wallet, and Your Data With 6 Digits PIN That You Created Yourself.</div>
           <div className="leading-relaxed text-[#504833] w-[430px]">Create 6 digits pin to secure all your money and your data in Trust-Pay app. Keep it secret and don’t tell anyone about your Trust-Pay account password and the PIN.</div>
 
-          <form onSubmit={createPin} className="flex flex-col w-[430px] gap-14">
+          {/* <form onSubmit={doCreatePin} className="flex flex-col w-[430px] gap-14">
             <div className="flex gap-6 mt-5">
               <div className={`bg-white rounded-xl text-center px-1 py-2 border-[1px] ${pin1 ? "border-[#857752]" : "border-[#A9A9A9]"}`}>
                 <input
@@ -196,6 +295,49 @@ const Pin = () => {
                 Confirm
               </button>
             </div>
+          </form> */}
+
+          <form onSubmit={doCreatePin} className='flex flex-col gap-16 w-full'>
+            <div className='flex flex-col gap-10 w-full'>
+              {successMessage && <BsCheckCircleFill className='text-success' size={60} />}
+              {successMessage ? (<h1 className='font-[500] text-primary text-2xl'>Your PIN Was Successfully Created</h1>) :
+                (<h1 className='font-[500] text-primary text-2xl'>Secure Your Account, Your Wallet, and Your Data With 6 Digits PIN That You Created Yourself.</h1>)}
+              {successMessage ? (<p className='text-secondary'>Your PIN was successfully created and you can now access all the features in FazzPay.</p>) :
+                (<p className='text-secondary'>Create 6 digits pin to secure all your money and your data in FazzPay app. Keep it secret and don’t tell anyone about your FazzPay account password and the PIN.</p>)}
+            </div>
+            {successMessage === false ? (<div className='w-full flex flex-col gap-6'>
+              <div className='flex justify-between items-center'>
+                <div className="flex flex-col gap-10 form-control w-full">
+                  {errorMessage && (<div className="flex flex-row justify-center alert alert-error shadow-lg text-white text-lg"><MdError size={30} />{errorMessage}</div>)}
+                  <div onChangePin={setPin} className='flex gap-2 w-full justify-center'>
+                    <div>
+                      <input onChange={changeValue} name="1" ref={pinInput.input1} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                    <div>
+                      <input onChange={changeValue} name="2" ref={pinInput.input2} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                    <div>
+                      <input onChange={changeValue} name="3" ref={pinInput.input3} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                    <div>
+                      <input onChange={changeValue} name="4" ref={pinInput.input4} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                    <div>
+                      <input onChange={changeValue} name="5" ref={pinInput.input5} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                    <div>
+                      <input onChange={changeValue} name="6" ref={pinInput.input6} className="input input-bordered w-12 text-2xl bg-transparent" type="number" />
+                    </div>
+                  </div>
+                  {/* <PinInput onChangePin={setPin} /> */}
+                  <label className="label hidden">
+                    <span className="label-text-alt"></span>
+                  </label>
+                </div>
+              </div>
+            </div>) : (<div> </div>)}
+            {loading ? (<button className={`btn btn-primary normal-case text-white ${successMessage && "hidden"}`}><span className="loading loading-spinner loading-sm"></span></button>) :
+              (<button className={`btn btn-primary normal-case text-white ${successMessage && "hidden"}`}>Create</button>)}
           </form>
         </div>
       </div>
@@ -203,4 +345,4 @@ const Pin = () => {
   );
 };
 
-export default WithAuth(Pin);
+export default Pin;

@@ -6,6 +6,7 @@ const nunito_sans = Nunito_Sans({ subsets: ["latin"], weight: "400" });
 export default function Home() {
   return (
     <>
+    <title>EasyPay</title>
       <nav className="flex bg-[#f5f5f5] px-20 py-5 items-center">
         <div className="grow">
           <img className="w-[25%]" src="/logo-easypay.png" alt="" />

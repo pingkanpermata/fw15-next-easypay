@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../redux/actions/profile";
@@ -22,12 +23,12 @@ const Navbar = () => {
   return (
     <div className="navbar px-20 py-5 bg-white rounded-xl shadow">
       <div className="flex-1">
-        <img className="w-[25%]" src="/logo-easypay.png" alt="" />
+        <Link href="/"><img className="w-[40%]" src="/logo-easypay.png" alt="" /></Link>
       </div>
 
       <div className="flex gap-5 mr-8">
         <div>
-          <img className="w-[50px]" src={user.picture ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload/${user.picture}` : "/defaultUser.png"} />
+          <img className="w-[50px]" src={user.picture ? `${process.env.URL_BACKEND}/upload/${user.picture}` : "/defaultUser.png"} />
         </div>
         <div className="flex flex-col gap-2 justify-center">
           <div className="text-lg font-bold">{`${user.firstName} ${user.lastName}`}</div>
