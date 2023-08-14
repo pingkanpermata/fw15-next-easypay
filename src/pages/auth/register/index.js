@@ -75,7 +75,7 @@ function Register() {
                     <Image className='h-[400px] max-xl:h-[200px] w-[500px]' src={Phone} alt='phone' />
                     <div className='grid gap-4 relative top-[30px] w-full'>
                         <div className='font-semibold text-xl'>App that Covering Banking Needs.</div>
-                        <div className='text-sm font-extralight'>FazzPay is an application that focussing in banking needs for all users in the world. Always updated and always following world trends. 5000+ users registered in FazzPay everyday with worldwide users coverage.</div>
+                        <div className='text-sm font-extralight'>EasyPay is an application that focussing in banking needs for all users in the world. Always updated and always following world trends. 5000+ users registered in EasyPay everyday with worldwide users coverage.</div>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@ function Register() {
                     <div className='w-[90%] max-sm:hidden text-[#302b1e] font-bold text-2xl leading-relaxed max-md:text-xl'>Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</div>
                     <div className='w-[90%] sm:hidden font-bold text-2xl leading-relaxed'>Sign Up</div>
                     <div className='w-full max-sm:hidden text-[#dac387] leading-8 text-base'>Transfering money is eassier than ever, you can access EasyPay wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</div>
-                    <div className='w-full sm:hidden text-slate-400 leading-8 text-base'>Create your account to access FazzPay.</div>
+                    <div className='w-full sm:hidden text-slate-400 leading-8 text-base'>Create your account to access EasyPay.</div>
                     {errorMessage && (
                     <div>
                         <h1 className="alert alert-error max-w-[400px]">{errorMessage}</h1>
