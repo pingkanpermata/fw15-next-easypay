@@ -14,10 +14,10 @@ export default function Home() {
 
         <div className="flex gap-3">
           <div>
-            <Link href='/login' className="rounded-xl py-2 px-8 w-[110px] font-bold border-2 border-[#dbc999] hover:bg-[#dac387] text-[#3b3524] hover:text-white bg-white">Login</Link>
+            <Link href='/auth/login' className="rounded-xl py-2 px-8 w-[110px] font-bold border-2 border-[#dbc999] hover:bg-[#dac387] text-[#3b3524] hover:text-white bg-white">Login</Link>
           </div>
           <div>
-            <Link href='/register' className="rounded-xl py-2 px-6  w-[110px] font-bold border-2 border-[#dbc999] text-white bg-[#d3ba7a] hover:bg-[#d7c28a]">Sign Up</Link>
+            <Link href='/auth/register' className="rounded-xl py-2 px-6  w-[110px] font-bold border-2 border-[#dbc999] text-white bg-[#d3ba7a] hover:bg-[#d7c28a]">Sign Up</Link>
           </div>
         </div>
       </nav>

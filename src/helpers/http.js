@@ -7,7 +7,7 @@ const http = (token)=>{
     }
 
     const instance = axios.create({
-        baseURL: "https://cute-lime-goldfish-toga.cyclic.app",
+        baseURL: "https://fine-jade-cygnet-tie.cyclic.app",
         headers
     });
     return instance;

@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-element {
-  color: #48e45526;
-}
-
-.no_arrows::-webkit-outer-spin-button,
-.no_arrows::-webkit-inner-spin-button {
+@layer base {
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
 }
