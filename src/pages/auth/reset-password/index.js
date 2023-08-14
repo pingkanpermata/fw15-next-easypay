@@ -79,7 +79,7 @@ function CreateNewPassword() {
                     <div className='w-[90%] font-bold text-2xl text-[#302b1e] leading-relaxed'>Did You Forgot Your Password?
 Don’t Worry, You Can Reset Your
 Password In a Minutes.</div>
-                    <div className='w-full text-[#dac387] leading-8 text-base'>Now you can create a new password for your FazzPay account. Type your password twice so we can confirm your new passsword.</div>
+                    <div className='w-full text-[#dac387] leading-8 text-base'>Now you can create a new password for your EasyPay account. Type your password twice so we can confirm your new passsword.</div>
                     {errorMessage && 
                     (<div>
                         <h1 className="alert alert-error w-full">{errorMessage}</h1>
