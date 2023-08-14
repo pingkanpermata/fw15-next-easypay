@@ -193,13 +193,13 @@ export default function Home() {
       </main>
 
       <footer className="
-      bg-[#dac387] px-20 py-14 text-white">
+      bg-[#857752] px-20 py-14 text-white">
         <img className="w-[15%]" src="/logo-easypay.png" alt="" />
         <div className="mb-8">Simplify financial needs and saving <br/> much time in banking needs with <br/> one single app.</div>
         <hr/>
         <div className="flex mt-5 gap-10">
           <div className="grow">2023 EasyPay. All right reserved.</div>
-          <div>+62 5637 8882 9901</div>
+          <div>+62 889 7108 1537</div>
           <div>contact@EasyPay.com</div>
         </div>
       </footer>

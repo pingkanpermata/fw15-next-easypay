@@ -29,12 +29,12 @@ function PinInput({onChangePin}) {
 
     return (
             <div className='flex flex-wrap justify-center gap-6'>
-                <input onChange={changeValue} name='1' ref={pinInput.input1} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
-                <input onChange={changeValue} name='2' ref={pinInput.input2} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
-                <input onChange={changeValue} name='3' ref={pinInput.input3} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
-                <input onChange={changeValue} name='4' ref={pinInput.input4} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
-                <input onChange={changeValue} name='5' ref={pinInput.input5} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
-                <input onChange={changeValue} name='6' ref={pinInput.input6} type='number' className='w-[53px] h-[65px] bg-white border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='1' ref={pinInput.input1} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='2' ref={pinInput.input2} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='3' ref={pinInput.input3} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='4' ref={pinInput.input4} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='5' ref={pinInput.input5} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
+                <input onChange={changeValue} name='6' ref={pinInput.input6} type='number' className='w-[53px] h-[65px] bg-[#857752] border-2 rounded-xl text-4xl text-center'></input>
             </div>
     )
 }
