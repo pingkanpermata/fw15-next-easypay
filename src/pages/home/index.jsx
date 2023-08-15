@@ -90,7 +90,7 @@ function Home({ token, history }) {
                                         <div className='flex items-center gap-2'>
                                             <Image src={history.recipient.picture === null ? defaultPicture : history.recipient.picture} alt='user' width={50} height={50} className='rounded-full w-12 h-12' />
                                             <div className='flex flex-col gap-2'>
-                                                <div className='font-semibold'>{history.recipient.email}</div>
+                                                <div className='font-semibold'>{history.recipient.username}</div>
                                                 <div className={history.type === "TOP-UP" ? 'text-green-500' : 'text-red-500'}>{history.type}</div>
                                             </div>
                                         </div>
