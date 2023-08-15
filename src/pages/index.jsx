@@ -1,5 +1,6 @@
 import { Nunito_Sans } from "@next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 
 const nunito_sans = Nunito_Sans({ subsets: ["latin"], weight: "400" });
 
@@ -9,7 +10,7 @@ export default function Home() {
     <title>EasyPay</title>
       <nav className="flex bg-[#f5f5f5] px-20 py-5 items-center">
         <div className="grow">
-          <img className="w-[25%]" src="/logo-easypay.png" alt="" />
+          <Image className="w-[25%]" src="/logo-easypay.png" alt="" />
         </div>
 
         <div className="flex gap-3">
@@ -25,7 +26,7 @@ export default function Home() {
       <main>
         <section className="flex px-20 gap-20 items-center justify-center bg-[#f5f5f5] pb-8">
           <div>
-            <img src="/Group 9.svg" alt="" />
+            <Image src="/Group 9.svg" alt="" />
           </div>
 
           <div className="flex flex-col gap-5">
@@ -44,11 +45,11 @@ export default function Home() {
               <div className="mb-5">Available On</div>
               <div className="flex gap-5">
                 <div>
-                  <img src="/gplay.svg" />
+                  <Image src="/gplay.svg" alt="" />
                 </div>
 
                 <div>
-                  <img src="/appstore.svg" />
+                  <Image src="/appstore.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -57,22 +58,22 @@ export default function Home() {
 
         <section className="flex bg-[#E5E5E5] px-20 py-14 ">
           <div className="grow">
-            <img src="/microsoft.svg" />
+            <Image src="/microsoft.svg" />
           </div>
           <div className="grow">
-            <img src="/dropbox.svg" />
+            <Image src="/dropbox.svg" alt="" />
           </div>
           <div className="grow">
-            <img src="/h&m.svg" />
+            <Image src="/h&m.svg" alt="" />
           </div>
           <div className="grow">
-            <img src="/airbnb.svg" />
+            <Image src="/airbnb.svg" alt="" />
           </div>
           <div className="grow">
-            <img src="/canon.svg" />
+            <Image src="/canon.svg" alt="" />
           </div>
           <div className="grow">
-            <img src="/dell.svg" />
+            <Image src="/dell.svg" alt="" />
           </div>
         </section>
 
@@ -90,7 +91,7 @@ export default function Home() {
             <div className="card w-80">
               <div className="pt-5 px-10 pb-10 flex flex-col items-center text-center">
                 <div>
-                  <img src="/phoneIcon.svg" />
+                  <Image src="/phoneIcon.svg" alt="" />
                 </div>
                 <div className="font-bold mb-5 text-xl">24/7 Support</div>
                 <div>We have 24/7 contact support so you can contact us whenever you want and we will respond it.</div>
@@ -99,7 +100,7 @@ export default function Home() {
             <div className="card w-80 bg-white">
               <div className="pt-5 px-10 pb-10 flex flex-col items-center text-center">
                 <div>
-                  <img src="/lockIcon.svg" />
+                  <Image src="/lockIcon.svg" alt="" />
                 </div>
                 <div className="font-bold mb-5 text-xl">Data Privacy</div>
                 <div>We make sure your data is safe in our database and we will encrypt any data you submitted to us.</div>
@@ -108,7 +109,7 @@ export default function Home() {
             <div className="card w-80">
               <div className="pt-5 px-10 pb-10 flex flex-col items-center text-center">
                 <div>
-                  <img src="/downloadIcon.svg" />
+                  <Image src="/downloadIcon.svg" alt="" />
                 </div>
                 <div className="font-bold mb-5 text-xl">Easy Download</div>
                 <div>EasyPay is 100% totally free to use it’s now available on Google Play Store and App Store.</div>
@@ -119,7 +120,7 @@ export default function Home() {
 
         <section className="flex px-20 py-10 gap-20 items-center justify-center bg-[#E5E5E5]">
           <div>
-            <img src="/Group 8.svg" />
+            <Image src="/Group 8.svg" alt="" />
           </div>
 
           <div className="flex flex-col gap-5">
@@ -168,14 +169,14 @@ export default function Home() {
           <div className="flex gap-10 items-center">
             <div className='w-[50px]'>
               <button className="bg-white p-3 rounded-xl">
-                <img src='/arrow-left.svg'/>
+                <Image src='/arrow-left.svg' alt=""/>
               </button>
             </div>
 
             <div className="card w-full bg-white">
               <div className="pt-5 px-16 pb-10 flex flex-col items-center text-center">
                 <div className="mb-5">
-                  <img src="/profile1.svg" />
+                  <Image src="/profile1.svg" alt="" />
                 </div>
                 <div className="font-bold mb-2 text-xl">Alex Hansinburg</div> 
                 <div className="mb-7">Designer</div>
@@ -185,7 +186,7 @@ export default function Home() {
 
             <div className='w-[50px]'>
               <button className="bg-white p-3 rounded-xl">
-                <img src='/arrow-right.svg'/>
+                <Image src='/arrow-right.svg' alt=""/>
               </button>
             </div>
           </div>
@@ -194,7 +195,7 @@ export default function Home() {
 
       <footer className="
       bg-[#857752] px-20 py-14 text-white">
-        <img className="w-[15%]" src="/logo-easypay.png" alt="" />
+        <Image className="w-[15%]" src="/logo-easypay.png" alt="" />
         <div className="mb-8">Simplify financial needs and saving <br/> much time in banking needs with <br/> one single app.</div>
         <hr/>
         <div className="flex mt-5 gap-10">
