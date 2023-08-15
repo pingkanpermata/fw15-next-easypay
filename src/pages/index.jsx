@@ -58,7 +58,7 @@ export default function Home() {
 
         <section className="flex bg-[#E5E5E5] px-20 py-14 ">
           <div className="grow">
-            <Image src="/microsoft.svg" />
+            <Image src="/microsoft.svg" alt="" />
           </div>
           <div className="grow">
             <Image src="/dropbox.svg" alt="" />
