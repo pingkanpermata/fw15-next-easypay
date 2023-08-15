@@ -75,10 +75,10 @@ function History({ token }) {
                         <div className='flex items-center gap-6'>
                             {sortHistory &&
                                 <div className='flex flex-col gap-2 text-white'>
-                                    <button onClick={() => sortTransfer()} className='bg-red-400 w-32 h-8 rounded-md flex items-center justify-center'>
+                                    <button onClick={() => sortTransfer()} className='bg-[#dac387] w-32 h-8 rounded-md flex items-center justify-center'>
                                         sort by Transfer
                                     </button>
-                                    <button onClick={() => sortTopUp()} className='bg-green-400 w-32 h-8 rounded-md flex items-center justify-center'>
+                                    <button onClick={() => sortTopUp()} className='bg-[#dac387] w-32 h-8 rounded-md flex items-center justify-center'>
                                         sort by TopUp
                                     </button>
                                 </div>
@@ -110,9 +110,9 @@ function History({ token }) {
                             )
                         })}
                         <div className='flex justify-center mt-4 gap-6'>
-                            <button disabled={paginition <= 1} onClick={() => pagePrev()} className='w-16 rounded-md text-center font-semibold h-6 bg-slate-300'>Prev</button>
+                            <button disabled={paginition <= 1} onClick={() => pagePrev()} className='w-16 rounded-md text-center font-semibold h-6 bg-[#dac387]'>Prev</button>
                             <div className='font-bold'>{historyUser.pageInfo?.page}</div>
-                            <button disabled={paginition === historyUser.pageInfo?.totalPage} onClick={() => pageNext()} className='w-16 rounded-md text-center font-semibold h-6 bg-slate-400'>Next</button>
+                            <button disabled={paginition === historyUser.pageInfo?.totalPage} onClick={() => pageNext()} className='w-16 rounded-md text-center font-semibold h-6 bg-[#dac387]'>Next</button>
                         </div>
                     </div>
                 </div>

@@ -43,7 +43,7 @@ function Confirmation({ token }) {
             amount,
             pin
         }).toString()
-        const { data } = await http(token).post('/transaction/transfer', form)
+        const { data } = await http(token).post('/transactions/transfer', form)
         dispatch(clearTransferState())
         router.replace('/history/status/' + data.results.id)
     }
